@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_android"
+    tools:context=".NoFavouriteActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/favouritetoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Favourites"
+        app:navigationIcon="@drawable/icon_back_black"
+        app:titleMarginStart="75dp"
+        android:theme="@style/FavouritesTheme"
+        android:background="#FFFFFF"/>
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="160dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="207dp"
+        android:src="@drawable/icon_nothing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favouritetoolbar"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="166dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="255dp"
+        android:text="No Favourites added"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.39" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

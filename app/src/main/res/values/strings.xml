@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+    <string name="alert_box">AlertBox</string>
+    <string name="remove">click button</string>
+    <string name="dialogMessage">Are you sure want to remove all the favourites?</string>
+</resources>
