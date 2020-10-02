@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_android"
-    tools:context=".FavouriteActivity">
+    tools:context=".view.FavouriteActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/favtoolbar"
         android:layout_width="match_parent"
@@ -58,8 +58,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerfavView"
-        android:background="@drawable/cardborder"
-        android:layout_width="match_parent"
+            android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
@@ -72,6 +71,16 @@
 
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintTop_toBottomOf="@id/recyclerfavView"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

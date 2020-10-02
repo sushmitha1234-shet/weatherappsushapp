@@ -1,13 +1,14 @@
-package com.androdocs.weatherapp
+package com.androdocs.weatherapp.Model
+
 import android.content.Context
 import android.preference.PreferenceManager
 import android.util.Log
-import android.widget.Toast
-//import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
-class SharedPreferencex (context: Context) {
+
+
+class SharedPreferences (context: Context) {
     private val prefs = PreferenceManager.getDefaultSharedPreferences(context)
     private val editor = prefs.edit()
     //private var favouritesList = ArrayList<IndividualCityWeatherDetails>()
@@ -28,7 +29,11 @@ class SharedPreferencex (context: Context) {
             }
         }
         if(!isPresent){
-            favouritesList.add(CityDetails(location))
+            favouritesList.add(
+                CityDetails(
+                    location
+                )
+            )
             saveToFavouriteArrayList(favouritesList)
             Log.d("adding","Sharepref")
         }
@@ -83,7 +88,9 @@ class SharedPreferencex (context: Context) {
             }
         }
         if(!isPresent){
-            recentSearchList.add(0, CityDetails(location))
+            recentSearchList.add(0,
+                CityDetails(location)
+            )
             saveToRecentSearchArrayList(recentSearchList)
         }
     }
@@ -123,5 +130,13 @@ class SharedPreferencex (context: Context) {
         editor.apply()
     }
 
+    fun remove(pos: Int){
+        var favouritesList1 = ArrayList<CityDetails>()
+        favouritesList1=loadFavouriteList()
+        favouritesList1.removeAt(pos)
+        saveToFavouriteArrayList(favouritesList1)
+
+//        Log.d("size",favouritesList.size.toString())
+    }
 
 }

@@ -1,7 +1,6 @@
-package com.androdocs.weatherapp
+package com.androdocs.weatherapp.view
 
 
-import com.androdocs.weatherapp.SharedPreferencex
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -12,16 +11,17 @@ import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.androdocs.weatherapp.R
+import com.androdocs.weatherapp.Model.SharedPreferences
 import com.example.myapplication.SearchAdapter
 import org.json.JSONObject
 import java.net.URL
 
 class SearchActivity : AppCompatActivity() {
-    lateinit var preferenceModel: SharedPreferencex
+    lateinit var preferenceModel: SharedPreferences
     var context = this
     val API: String = "5086ee31682cb35c05cb1f0d9bf0c676"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,14 +38,15 @@ class SearchActivity : AppCompatActivity() {
         }
         val recyclersearchView = findViewById<View>(R.id.recyclersearchView) as RecyclerView
         val sun = ArrayList<Int>()
+        val fav = ArrayList<Int>()
         val place= ArrayList<String>()
-//        val place= arrayOf("33","33","33","3")
         val temp =ArrayList<String>()
         val tempinfo = ArrayList<String>()
 
         val lManager = GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
         recyclersearchView.layoutManager = lManager
-        preferenceModel = SharedPreferencex(context)
+        preferenceModel =
+            SharedPreferences(context)
         var arr=preferenceModel.loadRecentSearchList()
         if(arr.size>0) {
             for (i in preferenceModel.loadRecentSearchList()) {
@@ -66,7 +67,7 @@ class SearchActivity : AppCompatActivity() {
                 val main = jsonObj.getJSONObject("main")
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
                 var tempr = main.getString("temp") + "°"
-                val weatherDescription = weather.getString("description")
+                val weatherDescription = weather.getString("description").capitalize()
                 val id = weather.getString("id").toInt()
                 if (id < 300) {
                     sun.add(R.drawable.icon_thunderstorm_big)
@@ -96,18 +97,33 @@ class SearchActivity : AppCompatActivity() {
                     sun.add(R.drawable.icon_mostly_cloudy_big)
 
                 }
+                var flag=0
+                for(j in preferenceModel.loadFavouriteList()) {
+                    Log.d("Ciyt", i.cityName)
+                    if (i.cityName == j.cityName) {
+                        flag = 1
+                        break
+//
+                    }
+                }
+                if(flag==1){
+                    fav.add(R.drawable.icon_favourite_active1)
+                }
+                else{
+                    fav.add(R.drawable.icon_favourite)
+                }
                 place.add(i.cityName)
                 temp.add(tempr)
                 tempinfo.add(weatherDescription)
             }
 
-//        val lManager = GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
-//        recyclersearchView.layoutManager = lManager
 
-            recyclersearchView.adapter = SearchAdapter(sun, place, temp, tempinfo, this)
+
+            recyclersearchView.adapter = SearchAdapter(sun, place, temp, tempinfo,fav,this)
         }
         else{
-            startActivity(Intent(this,NoSearchActivity::class.java))
+            startActivity(Intent(this,
+                NoSearchActivity::class.java))
             finish()
         }
         val remove = findViewById<TextView>(R.id.tvClearAll)
@@ -116,7 +132,8 @@ class SearchActivity : AppCompatActivity() {
 
                 Log.d("Remove","here")
                 preferenceModel.removeAllRecentSearches()
-                startActivity(Intent(this,NoFavouriteActivity::class.java))
+                startActivity(Intent(this,
+                    NoFavouriteActivity::class.java))
                 finish()
 
         }

@@ -4,13 +4,11 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".HomeActivity"
+        tools:context=".view.HomeActivity"
         android:background="@drawable/background_android"
          android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="horizontal">
-
-
 
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -18,8 +16,8 @@
             android:id="@+id/drawerLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
             android:background="@drawable/background_android"
+            android:fitsSystemWindows="true"
             android:visibility="visible"
 
             >
@@ -31,12 +29,12 @@
 
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
-                    android:textAlignment="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="?attr/actionBarSize"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textAlignment="center"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
 
                     />
 
@@ -51,19 +49,19 @@
                     android:layout_marginEnd="70dp"
                     android:layout_marginRight="70dp"
                     android:layout_marginBottom="507dp"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="0"
+                    android:lineHeight="15dp"
                     android:text="WED, 28 NOV 2018   11:35 AM"
+                    android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="#99FFFFFF"
-                    android:fontFamily="sans-serif"
                     android:textSize="13sp"
-                    android:lineHeight="15dp"
-                    android:letterSpacing="0"
-                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                    android:gravity="center_horizontal" />
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
                     android:id="@+id/tv_location"
@@ -92,30 +90,25 @@
 
             <CheckBox
                     android:id="@+id/checkBox"
-                    android:button="@drawable/icon_favourite"
-                    android:layout_marginStart="121dp"
-                    android:layout_marginLeft="121dp"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginEnd="120dp"
-                    android:layout_marginRight="120dp"
-                    android:layout_marginBottom="436dp"
-                    android:layout_height="17dp"
                     android:layout_width="wrap_content"
-                    android:text="  Add to favourite"
-                    android:textColor="#FFFFFF"
-                    android:textSize="13sp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textFontWeight="500"
+                    android:layout_height="17dp"
+                    android:layout_marginStart="119dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="436dp"
+                    android:button="@drawable/favourite_checkbox"
                     android:letterSpacing="0"
                     android:lineHeight="15dp"
-                    tools:layout_editor_absoluteX="158dp"
-                    tools:layout_editor_absoluteY="290dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#FFFFFF"
+                    android:textFontWeight="500"
+                    android:textSize="13sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintHorizontal_bias="0.096"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_location"
-                    app:layout_constraintVertical_bias="0.0"/>
+                    app:layout_constraintVertical_bias="1.0" />
 
             <ImageView
                     android:id="@+id/iv_weathericon"
@@ -130,8 +123,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkBox"
-                     />
+                    app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
             <RadioGroup
                     android:id="@+id/radBtnGroup"
@@ -140,8 +132,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="15dp"
-                    android:orientation="horizontal"
                     android:background="@drawable/border"
+                    android:orientation="horizontal"
                     app:layout_constraintBottom_toTopOf="@+id/tv_status"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -153,8 +145,8 @@
                         android:id="@+id/radioCelsius"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:button="@android:color/transparent"
                         android:background="@drawable/border"
+                        android:button="@android:color/transparent"
 
                         android:clickable="true"
                         android:gravity="center"
@@ -172,8 +164,7 @@
                         android:gravity="center"
                         android:text="\u00B0F"
                         android:textColor="#FFFFFF"
-                        android:textSize="18sp"
-                        />
+                        android:textSize="18sp" />
 
             </RadioGroup>
 
@@ -187,13 +178,13 @@
                     android:layout_marginEnd="179dp"
                     android:layout_marginRight="179dp"
                     android:layout_marginBottom="212dp"
-                    android:text="31"
-                    android:textColor="#FFFFFF"
-                    android:textSize="52sp"
                     android:fontFamily="sans-serif"
-                    android:textFontWeight="500"
                     android:letterSpacing="0"
                     android:lineHeight="61dp"
+                    android:text="31"
+                    android:textColor="#FFFFFF"
+                    android:textFontWeight="500"
+                    android:textSize="52sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -209,12 +200,12 @@
                     android:layout_marginEnd="126dp"
                     android:layout_marginRight="126dp"
                     android:layout_marginBottom="180dp"
+                    android:fontFamily="sans-serif"
+                    android:letterSpacing="0"
+                    android:lineHeight="21dp"
                     android:text="Mostly Sunny"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:lineHeight="21dp"
-                    android:letterSpacing="0"
-                    android:fontFamily="sans-serif"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -227,44 +218,45 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
+
                 <View
                         android:id="@+id/line"
                         android:layout_width="match_parent"
-                        android:layout_height= "0.9dp"
-                        android:backgroundTintMode="add"
+                        android:layout_height="0.9dp"
                         android:background="#ffffff"
+                        android:backgroundTintMode="add"
                         tools:ignore="MissingConstraints" />
 
                 <HorizontalScrollView
-                        android:scrollbars="none"
+                        android:id="@+id/bottomScrollView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/bottomScrollView"
-                        android:fillViewport="true"
                         android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginTop="40dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         android:layout_marginBottom="0dp"
-                        android:paddingBottom="40dp"
-                        android:backgroundTintMode="add"
                         android:backgroundTint="#9C8BEE"
+                        android:backgroundTintMode="add"
                         android:elevation="2dp"
+                        android:fillViewport="true"
+                        android:paddingBottom="40dp"
+                        android:scrollbars="none"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
 
 
-                        android:layout_marginLeft="0dp">
+                        app:layout_constraintStart_toStartOf="parent">
 
                     <LinearLayout
 
-                            android:paddingTop="20dp"
                             android:id="@+id/linearLayoutTempDetails"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="20dp"
+                            android:layout_marginLeft="20dp"
 
                             android:orientation="horizontal"
-                            android:layout_marginLeft="20dp">
+                            android:paddingTop="20dp">
 
                         <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/minMaxTempImageView"
@@ -276,26 +268,28 @@
                         <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="30dp"
                                 android:orientation="vertical"
+                                android:paddingStart="20dp"
                                 android:paddingLeft="20dp"
+                                android:paddingEnd="30dp"
                                 android:paddingRight="30dp">
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="Min - Max"
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text="Min - Max"
 
                                     />
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/tv_minmax"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text=""
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text=""
 
 
                                     />
@@ -311,93 +305,97 @@
                         <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
                                 android:orientation="vertical"
-                                >
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp">
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="Precipitation"
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text="Precipitation"
-
 
 
                                     />
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/tvPrecipitationData"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="30 %"
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text="30 %"
 
                                     />
 
                         </LinearLayout>
+
                         <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/humidityImageView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="5dp"
-                                android:src="@drawable/icon_humidity"
-                                />
+                                android:src="@drawable/icon_humidity" />
 
                         <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
                                 android:orientation="vertical"
-                                >
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp">
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="Humidity"
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text="Humidity"
 
                                     />
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/tv_humidity"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text=""
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text=""
 
 
                                     />
                         </LinearLayout>
+
                         <androidx.appcompat.widget.AppCompatImageView
                                 android:id="@+id/windImageView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="5dp"
                                 android:src="@drawable/icon_wind" />
+
                         <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
                                 android:orientation="vertical"
-                                >
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp">
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="Wind"
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text="Wind"
 
                                     />
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/tv_wind"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text=""
                                     android:textColor="#FFF"
-                                    android:textSize="15sp"
-                                    android:text=""/>
+                                    android:textSize="15sp" />
 
                         </LinearLayout>
 
@@ -407,29 +405,32 @@
                                 android:layout_height="wrap_content"
                                 android:paddingTop="5dp"
                                 android:src="@drawable/icon_visibility" />
+
                         <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
                                 android:layout_marginEnd="20dp"
+                                android:layout_marginRight="20dp"
                                 android:orientation="vertical"
-                                android:layout_marginRight="20dp">
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp">
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="Visibility"
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text="Visibility"
 
                                     />
+
                             <androidx.appcompat.widget.AppCompatTextView
                                     android:id="@+id/tv_visibility"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="13 km"
                                     android:textColor="#FFF"
                                     android:textSize="15sp"
-                                    android:text="13 km"
 
 
                                     />
@@ -440,20 +441,35 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <TextView
+                    android:id="@+id/AddTofav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="122dp"
+                    android:layout_marginBottom="80dp"
+                    android:text="Add to favourites"
+                    android:textColor="#FFF"
+                    app:layout_constraintBottom_toTopOf="@+id/iv_weathericon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/checkBox"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <com.google.android.material.navigation.NavigationView
                 android:id="@+id/navView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:menu="@menu/nav_drawer_menu"
                 android:layout_gravity="start"
-                android:fitsSystemWindows="true">
+                android:fitsSystemWindows="true"
+                app:menu="@menu/nav_drawer_menu">
 
         </com.google.android.material.navigation.NavigationView>
 
 
     </androidx.drawerlayout.widget.DrawerLayout>
-
 
     <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_centerInParent="true"

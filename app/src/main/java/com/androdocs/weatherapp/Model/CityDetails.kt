@@ -1,4 +1,4 @@
-package com.androdocs.weatherapp
+package com.androdocs.weatherapp.Model
 
 class CityDetails(
     val cityName: String

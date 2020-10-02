@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_android"
-    tools:context=".NoFavouriteActivity">
+    tools:context=".view.NoFavouriteActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/favouritetoolbar"
@@ -41,7 +41,7 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="166dp"
+        android:layout_width="200dp"
         android:layout_height="21dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="255dp"
