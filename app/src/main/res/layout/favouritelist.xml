@@ -1,77 +1,89 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#1AFFFFFF"
         android:layout_marginBottom="2dp"
-        android:orientation="vertical">
-
-
-    <TextView
-            android:id="@+id/tvplace"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="20dp"
-            android:text="Udupi,Karnataka"
-            android:textColor="#FFE539"
-            android:textSize="15sp">
-
-    </TextView>
-
-    <ImageView
-            android:id="@+id/fav_active"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="320dp"
-            android:layout_marginTop="0dp"
-            app:srcCompat="@drawable/icon_favourite"
-            android:contentDescription="TODO" />
+        android:orientation="horizontal"
+        >
 
     <LinearLayout
-            android:layout_width="290dp"
-            android:layout_height="50dp"
-            android:orientation="horizontal">
-
-        <ImageView
-                android:id="@+id/ivSun"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/icon_temperature" />
-
+            android:layout_width="319dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="2dp"
+            >
         <TextView
-                android:id="@+id/ittemp"
+                android:id="@+id/tvplace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="7dp"
-                android:text=" 31 u00B0C"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-        <TextView
-                android:id="@+id/itvmostlysunny"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="7dp"
-                android:text="Mostly Sunny"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp">
+                android:text="Udupi,Karnataka"
+                android:textColor="#FFE539"
+                android:textSize="15sp"
+                >
 
         </TextView>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                >
+            <ImageView
+                    android:id="@+id/ivSun"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/icon_mostly_sunny_small" />
+            <TextView
+                    android:id="@+id/ittemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello world"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginStart="9dp"/>
+
+            <TextView
+                    android:id="@+id/itvmostlysunny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mostly Sunny"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="17dp"
+                    android:textSize="16sp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
 
 
     </LinearLayout>
 
 
 
+    <ImageView
+            android:id="@+id/fav_active"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/icon_favourite_active"
+            android:layout_marginEnd="20dp"/>
+
 
 
 </LinearLayout>
+
+
+
 
 
 

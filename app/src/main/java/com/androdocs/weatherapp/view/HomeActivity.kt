@@ -17,6 +17,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.androdocs.weatherapp.R
@@ -46,8 +47,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        preferenceModel =
-            SharedPreferences(context)
+        preferenceModel = SharedPreferences(context)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.open,
@@ -60,6 +61,7 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.setLogo(R.drawable.logo)
         supportActionBar?.setDisplayUseLogoEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_whitehamburger)
 
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -349,11 +351,10 @@ class HomeActivity : AppCompatActivity() {
         fusedLocationProviderClient.lastLocation.addOnCompleteListener {
             val location = it.getResult()
             val geocoder: Geocoder = Geocoder(this)
-            var address: List<Address> =
-                geocoder.getFromLocation(location.latitude, location.longitude, 1)
+            val address: List<Address> = geocoder.getFromLocation(location.latitude, location.longitude, 1)
             tv_location.text = "${address.get(0).subAdminArea}"
             tv_location.text = "${address.get(0).subAdminArea}, ${address.get(0).adminArea}"
-            //tv_location.text= address[0].locality  + ", " + address[0].subAdminArea + ", " + address[0].adminArea
+          //  tv_location.text= address[0].locality  + ", " + address[0].subAdminArea + ", " + address[0].adminArea
 
             CITY = tv_location.text.toString()
             weatherTask().execute()
@@ -361,7 +362,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-   // fun String.replaceAndCapitalize() = this.replace("\"", "").split(" ").joinToString(" ") { it.capitalize() }.trimEnd()
+
 
 
     override fun onRequestPermissionsResult(
