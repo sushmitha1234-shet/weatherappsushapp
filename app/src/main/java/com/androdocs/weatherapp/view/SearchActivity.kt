@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androdocs.weatherapp.R
 import com.androdocs.weatherapp.Model.SharedPreferences
+import com.androdocs.weatherapp.replaceAndCapitalize
 import com.example.myapplication.SearchAdapter
 import org.json.JSONObject
 import java.net.URL
@@ -54,7 +55,7 @@ class SearchActivity : AppCompatActivity() {
                 var response: String?
                 try {
                     response =
-                        URL("https://api.openweathermap.org/data/2.5/weather?q=${i.cityName} &units=default&appid=$API").readText(
+                        URL("https://api.openweathermap.org/data/2.5/weather?q=${i.cityName} &units=metric&appid=$API").readText(
                             Charsets.UTF_8
                         )
                     Log.d("exp", response.toString())
@@ -66,8 +67,8 @@ class SearchActivity : AppCompatActivity() {
                 val jsonObj = JSONObject(response)
                 val main = jsonObj.getJSONObject("main")
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
-                var tempr = main.getString("temp") + "°"
-                val weatherDescription = weather.getString("description").capitalize()
+                var tempr = main.getString("temp").toDouble().toInt().toString()+ "°C"
+                val weatherDescription = weather.getString("description").replaceAndCapitalize()
                 val id = weather.getString("id").toInt()
                 if (id < 300) {
                     sun.add(R.drawable.icon_thunderstorm_big)

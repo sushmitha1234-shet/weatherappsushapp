@@ -21,6 +21,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.androdocs.weatherapp.R
 import com.androdocs.weatherapp.Model.SharedPreferences
+import com.androdocs.weatherapp.replaceAndCapitalize
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.mapbox.mapboxsdk.plugins.places.autocomplete.PlaceAutocomplete
@@ -180,9 +181,9 @@ class HomeActivity : AppCompatActivity() {
                 val currentDateAndTime: String = simpleDateFormat.format(Date())
                 textView.text = currentDateAndTime
 
-                var temp = main.getString("temp") + "°"
+                var temp = main.getString("temp").toDouble().toInt().toString()
                 var tempMinMax =
-                    "" + main.getString("temp_min") + "°" + "-" + main.getString("temp_max") + "°"
+                    "" + main.getString("temp_min").toDouble().toInt().toString() + "°" + "-" + main.getString("temp_max").toDouble().toInt().toString() + "°"
                 val pressure = main.getString("pressure")
                 val humidity = main.getString("humidity") + "km/h"
                 val visiblility = jsonObj.getString("visibility") + "km"
@@ -225,7 +226,7 @@ class HomeActivity : AppCompatActivity() {
                 /* Populating extracted data into our views */
                 findViewById<TextView>(R.id.tv_location).text = address
 
-                findViewById<TextView>(R.id.tv_status).text = weatherDescription.capitalize()
+                findViewById<TextView>(R.id.tv_status).text = weatherDescription.replaceAndCapitalize()
                 findViewById<TextView>(R.id.tv_temp).text = temp
                 findViewById<TextView>(R.id.tv_minmax).text = tempMinMax
 
@@ -261,11 +262,11 @@ class HomeActivity : AppCompatActivity() {
                         it.setTextColor(Color.parseColor("#FFFFFF"))
                     }
 
-                    var temp = ((main.getString("temp").toDouble()) - 273.15).toInt()
+                    var temp = (main.getString("temp").toDouble()).toInt()
                     findViewById<TextView>(R.id.tv_temp).text = temp.toString() + "°"
-                    var tempmin = (((main.getString("temp_min").toDouble()) - 273.15)).toInt()
+                    var tempmin = (main.getString("temp_min").toDouble()).toInt()
                         .toString() + "°"
-                    var tempmax = (((main.getString("temp_max").toDouble()) - 273.15)).toInt()
+                    var tempmax = (main.getString("temp_max").toDouble()).toInt()
                         .toString() + "°"
                     var tempMinMax = tempmin + "-" + tempmax
                     findViewById<TextView>(R.id.tv_minmax).text = tempMinMax
@@ -283,12 +284,12 @@ class HomeActivity : AppCompatActivity() {
                         it.setTextColor(Color.parseColor("#FFFFFF"))
                     }
                     var temp =
-                        ((((main.getString("temp").toDouble()) - 273.15) * 9 / 5) + 32).toInt()
+                        ((main.getString("temp").toDouble()* 9 / 5) + 32).toInt()
                     findViewById<TextView>(R.id.tv_temp).text = temp.toString() + "°"
-                    var tempmin = (((((main.getString("temp_min")
-                        .toDouble()) - 273.15) * 9 / 5) + 32)).toInt().toString() + "°"
-                    var tempmax = (((((main.getString("temp_max")
-                        .toDouble()) - 273.15) * 9 / 5) + 32)).toInt().toString() + "°"
+                    var tempmin = ((main.getString("temp_min")
+                        .toDouble() * 9 / 5) + 32).toInt().toString() + "°"
+                    var tempmax = ((main.getString("temp_max")
+                        .toDouble() * 9 / 5) + 32).toInt().toString() + "°"
                     var tempMinMax = tempmin + "-" + tempmax
                     findViewById<TextView>(R.id.tv_minmax).text = tempMinMax
 

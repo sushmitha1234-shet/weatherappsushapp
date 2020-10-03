@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.androdocs.weatherapp.Model.SharedPreferences
 import com.androdocs.weatherapp.helper.Swipetodelete
+import com.androdocs.weatherapp.replaceAndCapitalize
 import com.example.myapplication.FavouriteAdapter
 import kotlinx.android.synthetic.main.activity_favourite.*
 import org.json.JSONObject
@@ -38,8 +39,7 @@ class FavouriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R1.layout.activity_favourite)
 
-        preferenceModel =
-            SharedPreferences(context)
+        preferenceModel = SharedPreferences(context)
 
         val toolbar = findViewById(R1.id.favtoolbar) as androidx.appcompat.widget.Toolbar
         setSupportActionBar(toolbar)
@@ -66,7 +66,7 @@ class FavouriteActivity : AppCompatActivity() {
                 var response: String?
                 try {
                     response =
-                        URL("https://api.openweathermap.org/data/2.5/weather?q=${i.cityName} &units=default&appid=$API").readText(
+                        URL("https://api.openweathermap.org/data/2.5/weather?q=${i.cityName} &units=metric&appid=$API").readText(
                             Charsets.UTF_8
                         )
                     Log.d("exp", response.toString())
@@ -78,8 +78,8 @@ class FavouriteActivity : AppCompatActivity() {
                 val jsonObj = JSONObject(response)
                 val main = jsonObj.getJSONObject("main")
                 val weather = jsonObj.getJSONArray("weather").getJSONObject(0)
-                var tempr = main.getString("temp") + "°"
-                val weatherDescription = weather.getString("description")
+                var tempr = main.getString("temp").toDouble().toInt().toString() + "°C"
+                val weatherDescription = weather.getString("description").replaceAndCapitalize()
                 val id = weather.getString("id").toInt()
                 if (id < 300) {
                     sun.add(R1.drawable.icon_thunderstorm_big)
